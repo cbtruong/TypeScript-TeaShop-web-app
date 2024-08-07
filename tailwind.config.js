@@ -3,20 +3,33 @@ export default {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
 		extend: {
+			backgroundImage: {
+				headerHome: "url('./assets/SlideHome.jpg')",
+			},
+			backgroundPosition: {
+				"center-470": "center 470px",
+			},
 			colors: {
+				transparent: 'transparent',
 				white: "white",
-				black: "black",
+				black: "rgba(36,42,53,1)",
+				lightGray:'#9F9F9F',
+				blackHeader:"rgba(36,42,53,0.55)",
+				gray:"#414141",
 				lightBlack: "#242A35",
+				darkWhite:"rgba(255,255,255,0.4)",
+
 			},
 			height: {
-				header: "8.3125rem",
+				header: "8.375rem",
 			},
 			fontFamily: {
-				roboto: `"Poppins", sans-serif`,
+				main: `"Neuton", serif`,
+				extra:`"Noto Serif Devanagari", serif`,
 			},
 			margin: {
-				big: "3.5rem",
-				h1: "2.5rem",
+				big: "3rem",
+				h1: "2.75rem",
 				h2: "1.5rem",
 				h3: "1.25rem",
 				normal: "1rem",
@@ -25,7 +38,8 @@ export default {
 				tiny: "0.625rem,",
 			},
 			fontSize: {
-				big: "3.5rem",
+				bigger:"4rem",
+				big: "3rem",
 				h1: "2.5rem",
 				h2: "1.5rem",
 				h3: "1.25rem",
@@ -35,11 +49,27 @@ export default {
 				tiny: "0.625rem",
 			},
 			fontWeight: {
-        normal:"400",
-        meidum:"600",
-        semiBold:"700",
-      },
+				tiny:"100",
+				small:"300",
+				normal: "400",
+				meidum: "600",
+				semiBold: "700",
+			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		function ({ addUtilities }) {
+			addUtilities({
+				".displayCenter": {
+					display: "flex",
+					alignItems: "center",
+					flexDirection:"column",
+					justifyContent: "center",
+				},
+				".transitionMain":{
+					transition:'all .3s ease-in-out',
+				}
+			});
+		},
+	],
 };
