@@ -1,0 +1,6 @@
+.product-swapper:hover .productImg_tea{
+    display: block;
+}
+.product-swapper:hover .shows{
+    bottom: 0;
+}
