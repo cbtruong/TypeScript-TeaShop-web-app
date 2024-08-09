@@ -52,7 +52,7 @@ export default {
 				tiny:"100",
 				small:"300",
 				normal: "400",
-				meidum: "600",
+				medium: "600",
 				semiBold: "700",
 			},
 		},
