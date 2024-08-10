@@ -1,6 +1,5 @@
 import Header from "../../components/header/Header";
 import Button from "../../components/button/Button";
-
 import "boxicons/css/boxicons.min.css";
 import ProductShowcase from "../../components/home/productShowcase/ProductShowcase";
 
