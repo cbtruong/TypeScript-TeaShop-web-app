@@ -47,7 +47,7 @@ const Teas = () => {
         </div>
         <div className="w-5/6 flex flex-row gap-6">
           {products.map((product, index) => (
-            <Product key={index} {...product} isShowButton={true} />
+            <Product key={index+1} {...product} isShowButton={true} />
           ))}
         </div>
       </div>

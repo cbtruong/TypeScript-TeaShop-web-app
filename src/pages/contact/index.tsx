@@ -140,6 +140,7 @@ const Contact = () => {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3152.438420319443!2d144.9563403152588!3d-37.81774407975432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642e7e3b3e4f9%3A0x6b4e2c3d1d5e7e8b!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1634011347180!5m2!1sen!2sau"
           allowFullScreen={true}
           loading="lazy"
+          title="Google Maps"
         ></iframe>
       </div>
     </div>
