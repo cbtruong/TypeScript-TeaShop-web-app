@@ -9,9 +9,11 @@ import "./Profile.css";
 
 //component
 import Main from "../../components/profile/index";
-import Order from '../../components/profile/order/Order';
-import Address from '../../components/profile/addresses/Addresses';
+import Order from '../../components/profile/order/Empty';
+import EmptyAddress from '../../components/profile/addresses/Empty';
 import EmptyWallet from '../../components/profile/wallet/Empty';
+import EmptyBlogComment from '../../components/profile/blogComment/Empty';
+import EmptyBlogLike from '../../components/profile/blogLike/Empty';
 
 interface menuProfileItem {
 	name: string;
@@ -30,7 +32,7 @@ const Profile = () => {
 		},
 		{
 			name: "My Addresses",
-			component: <Address />,
+			component: <EmptyAddress />,
 		},
 		{
 			name: "My Wallet",
@@ -42,11 +44,11 @@ const Profile = () => {
 		},
 		{
 			name: "Blog Comments",
-			component: <Main />,
+			component: <EmptyBlogComment />,
 		},
 		{
 			name: "Blog Likes",
-			component: <Main />,
+			component: <EmptyBlogLike />,
 		},
 		{
 			name: "My Drafts",
@@ -119,14 +121,14 @@ const Profile = () => {
 											item.name === selectProfile
 												? "bg-black"
 												: "bg-white"
-										} w-full py-3 px-7 transitionMain hover:bg-black cursor-pointer`}
+										} w-full py-3 px-7 text-left transitionMain hover:bg-black cursor-pointer`}
 									>
 										<span
 											className={`${
 												item.name === selectProfile
 													? "text-white"
 													: "text-black"
-											} text-small font-small transitionMain`}
+											} text-small font-small transitionMain `}
 										>
 											{item.name}
 										</span>

@@ -9,13 +9,13 @@ interface ProductProps {
   image: string;
   image_hover: string;
   isShowButton?: boolean;
-};
+}
 
 const Product: React.FC<ProductProps> = ({ ...props }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
     <>
-      <div className="w-[24%] product-swapper cursor-pointer">
+      <div className="w-full product-swapper cursor-pointer">
         <div className="w-[100%] relative overflow-hidden">
           <img className="productImg" src={props.image} alt="" />
           <img className="productImg_tea hidden absolute top-0 left-0" src={props.image_hover} alt="" />
