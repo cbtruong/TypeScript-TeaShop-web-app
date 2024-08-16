@@ -9,7 +9,7 @@ const Header: React.FC = () => {
   const [selectMenu, setSelectMenu] = useState<string>("Teas");
   const [isOpenCart, setIsOpenCart] = useState(false);
 
-  const handleMenuClick = (e: React.MouseEvent<HTMLLIElement>, item: string) => {
+  const handleMenuClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, item: string) => {
     e.preventDefault();
     setSelectMenu(item);
   }
@@ -64,9 +64,9 @@ const Header: React.FC = () => {
                       : "cursor-pointer transitionMain"
                     }`}
                 >
-                  {/* <a href="" onClick={(e) => handleMenuClick(e ,item)}>
+                  <a href="" onClick={(e) => handleMenuClick(e ,item)}>
 									{item}
-								</a> */}
+								</a>
                 </li>
               ))}
             </ul>
