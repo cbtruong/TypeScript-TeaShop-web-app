@@ -3,15 +3,16 @@ import Pinter from "../../assets/pinter.png";
 import Instagram from "../../assets/instagram.png";
 import CartQuickView from "../cart/CartQuickView";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header: React.FC = () => {
+  const [isOpenCart, setIsOpenCart] = useState(false);
   const menuItems: string[] = ["Teas", "Extras", "About", "Blog", "Contact"];
   const [selectMenu, setSelectMenu] = useState<string>("Teas");
-  const [isOpenCart, setIsOpenCart] = useState(false);
-
-  const handleMenuClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, item: string) => {
-    e.preventDefault();
+  
+  const handleMenuClick = (item: string) => {
     setSelectMenu(item);
+    console.log(item);
   }
   return (
     <>
@@ -36,9 +37,9 @@ const Header: React.FC = () => {
             {/* Account */}
             <div className="flex gap-4 items-center">
               <i className="bx bxs-user px-0.5 pt-1 text-h3 cursor-pointer  bg-white rounded-full"></i>
-              <span className="text-white font-small hover:text-lightGray cursor-pointer">
+              <Link to="/login" className="text-white font-small hover:text-lightGray cursor-pointer">
                 Đăng nhập
-              </span>
+              </Link>
               <button onClick={() => setIsOpenCart(true)} className="relative cursor-pointer">
                 <i className="bx bxs-cart text-h1 text-white "></i>
                 <span className="top-[50%] left-[50%] absolute text-smaller font-medium translate-y-[-50%]">
@@ -60,13 +61,13 @@ const Header: React.FC = () => {
                 <li
                   key={index}
                   className={`${item === selectMenu
-                      ? "text-yellow"
-                      : "cursor-pointer transitionMain"
+                    ? "text-yellow"
+                    : "cursor-pointer transitionMain"
                     }`}
                 >
-                  <a href="" onClick={(e) => handleMenuClick(e ,item)}>
-									{item}
-								</a>
+                  <Link to={`/${item.toLowerCase()}`} onClick={() => handleMenuClick(item)}>
+                    {item}
+                  </Link>
                 </li>
               ))}
             </ul>
