@@ -3,6 +3,7 @@ import Background from "../../assets/background_login.svg";
 import GoogleIcon from "../../assets/google_icon.svg";
 import { useUser } from '../../redux/userContext';
 import { user } from '../../type/user';
+import { Link } from "react-router-dom";
 
 type FormData = {
   email: string;
@@ -36,14 +37,15 @@ const Login = () => {
         alt=""
         className="w-full h-full object-cover absolute top-0 left-0"
       />
+      <Link to='/' className="absolute top-20 right-96"><i className='bx bx-x text-white text-h1'></i></Link>
       <div className="absolute w-[500px] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neutral-950 bg-opacity-50 p-8 rounded shadow-lg">
         <form className="px-[20px] py-[20px] text-white text-[18px]" onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-[64px] text-center">LOGIN</h2>
           <div className="flex flex-row space-x-1 justify-center">
             <p>New to this site?</p>
-            <a href="/auth/register" className="text-primary">
+            <Link to="/register" className="text-primary">
               Register
-            </a>
+            </Link>
           </div>
           <div className="mt-[20px] relative">
             <Controller
