@@ -6,7 +6,7 @@ import ProductShowcase from "../../components/home/productShowcase/ProductShowca
 const Home = () => {
 	return (
 		<div className="relative">
-			<div className="bg-cover bg-center bg-fixed bg-headerHome displayCenter pt-[323px]">
+			<div className="bg-cover bg-center bg-fixed bg-headerHome displayCenter flex-col pt-[323px]">
 				<h1 className="text-big text-white font-small tracking-wide">
 					It’s Always Tea Time
 				</h1>
@@ -28,7 +28,7 @@ const Home = () => {
 					Read Our Blog
 				</h1>
 			</div>
-			<div className="text-center bg-cover bg-fixed bg-center bg-black cursor-pointer displayCenter">
+			<div className="text-center bg-cover bg-fixed bg-center bg-black cursor-pointer displayCenter flex-col">
 				<h1 className="pt-32 pb-4 w-[45%] font-extra text-white text-h2 italic font-tiny">
 					“I'm a testimonial. Click to edit me and add text that says
 					something nice about you and your services.”

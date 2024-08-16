@@ -18,7 +18,7 @@ export default {
 				gray:"#414141",
 				lightBlack: "#242A35",
 				darkWhite:"rgba(255,255,255,0.4)",
-
+				yellow:"rgb(214, 184, 110)",
 			},
 			height: {
 				header: "8.375rem",
@@ -28,14 +28,7 @@ export default {
 				extra:`"Noto Serif Devanagari", serif`,
 			},
 			margin: {
-				big: "3rem",
-				h1: "2.75rem",
-				h2: "1.5rem",
-				h3: "1.25rem",
-				normal: "1rem",
-				small: "0.875rem",
-				smaller: "0.75rem",
-				tiny: "0.625rem,",
+				"2-5":"2.5rem",
 			},
 			fontSize: {
 				bigger:"4rem",
@@ -50,6 +43,7 @@ export default {
 			},
 			fontWeight: {
 				tiny:"100",
+				smaller:"200",
 				small:"300",
 				normal: "400",
 				medium: "600",
@@ -63,7 +57,6 @@ export default {
 				".displayCenter": {
 					display: "flex",
 					alignItems: "center",
-					flexDirection:"column",
 					justifyContent: "center",
 				},
 				".transitionMain":{
