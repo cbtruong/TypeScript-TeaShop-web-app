@@ -10,7 +10,7 @@ const About = () => {
         </h1>
       </div>
       <Header />
-      <div className="my-[5.5rem] displayCenter">
+      <div className="my-[5.5rem] displayCenter flex-col">
         <div className="w-full displayCenter relative mb-8">
           <h2 className="font-extra italic text-h1 z-10 bg-white px-12 font-tiny">
             120 Years of Brewing Fine Tea
