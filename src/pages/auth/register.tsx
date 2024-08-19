@@ -33,7 +33,7 @@ const Register = () => {
           <h2 className="text-[64px] text-center">REGISTER</h2>
           <div className="flex flex-row space-x-1 justify-center">
             <p>Already a member?</p>
-            <Link to="/login" className="text-primary">
+            <Link to="/auth/login" className="text-primary">
               Login
             </Link>
           </div>

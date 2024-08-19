@@ -1,4 +1,4 @@
-import Button from "../button/Button";
+import { Link } from "react-router-dom";
 import CartQVItem from "./CartQVItem";
 
 interface CartProps {
@@ -22,7 +22,12 @@ const CartQuickView: React.FC<CartProps> = ({ onClose }) => {
       </style>
       <div className="w-full h-full flex flex-col">
         <div className="flex flex-row justify-between items-center bg-black py-5">
-          <button onClick={onClose} className="focus:-rotate-180 transitionMain"><i className='bx bx-chevron-right text-white text-h1'></i></button>
+          <button
+            onClick={onClose}
+            className="focus:-rotate-180 transitionMain"
+          >
+            <i className="bx bx-chevron-right text-white text-h1"></i>
+          </button>
           <h1 className="text-h1 font-extra text-white italic">Cart</h1>
           <div className="text-black">cart</div>
         </div>
@@ -38,12 +43,16 @@ const CartQuickView: React.FC<CartProps> = ({ onClose }) => {
             <p className="text-h2 font-extra">7đ</p>
           </div>
           <div className="p-10 border-t">
-            <Button className='w-full bg-lightBlack hover:bg-lightGray text-white text-small border-none'>View Cart</Button>
+            <Link to="/cart" onClick={onClose}>
+              <div className="w-full bg-lightBlack hover:bg-lightGray text-white text-center text-small border-none border-2 px-6 py-2 box-border transitionMain">
+                View cart
+              </div>
+            </Link>
           </div>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default CartQuickView;
