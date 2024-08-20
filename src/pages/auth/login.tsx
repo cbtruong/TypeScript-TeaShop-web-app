@@ -11,7 +11,7 @@ type FormData = {
 };
 
 const Login = () => {
-  const { setUser } = useUser();
+  // const { setUser } = useUser();
   const { control, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
 
   const emailValue = watch("email", "");
@@ -25,9 +25,9 @@ const Login = () => {
       password: data.password,
       role: 'user'
     };
-    setUser(newUser);
+    // setUser(newUser);
 
-    console.log(newUser);
+    // console.log(newUser);
   };
 
   return (
@@ -43,7 +43,7 @@ const Login = () => {
           <h2 className="text-[64px] text-center">LOGIN</h2>
           <div className="flex flex-row space-x-1 justify-center">
             <p>New to this site?</p>
-            <Link to="/register" className="text-primary">
+            <Link to="/auth/register" className="text-primary">
               Register
             </Link>
           </div>
