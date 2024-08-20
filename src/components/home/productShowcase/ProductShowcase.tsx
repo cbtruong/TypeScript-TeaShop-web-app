@@ -44,7 +44,8 @@ const ProductShowcase = () => {
         I'm a paragraph. Click here to add your own text and edit me.
         Let your users get to know you.
       </span>
-      <div className="px-10 w-full gap-6 flex-row flex box-border pb-10 mb-8">
+
+      <div className=" w-[70%] grid gap-4 grid-cols-custom pb-10 mb-8 ">
         {products.map((product, index) => (
           <Product key={index} {...product} isShowButton={false} />
         ))}
