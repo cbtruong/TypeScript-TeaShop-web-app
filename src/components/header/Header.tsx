@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Header: React.FC = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const menuItems: string[] = ["Teas", "Extras", "About", "Blog", "Contact"];
-  const [selectMenu, setSelectMenu] = useState<string>("Teas");
+  const [selectMenu, setSelectMenu] = useState<string>("");
   
   const handleMenuClick = (item: string) => {
     setSelectMenu(item);
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
             {/* Account */}
             <div className="flex gap-4 items-center">
               <i className="bx bxs-user px-0.5 pt-1 text-h3 cursor-pointer  bg-white rounded-full"></i>
-              <Link to="/login" className="text-white font-small hover:text-lightGray cursor-pointer">
+              <Link to="/auth/login" className="text-white font-small hover:text-lightGray cursor-pointer">
                 Đăng nhập
               </Link>
               <button onClick={() => setIsOpenCart(true)} className="relative cursor-pointer">
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
             >
               {menuItems.map((item, index) => (
                 <li
-                  key={index}
+                  key={index+1}
                   className={`${item === selectMenu
                     ? "text-yellow"
                     : "cursor-pointer transitionMain"

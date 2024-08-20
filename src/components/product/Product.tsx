@@ -3,19 +3,23 @@ import Button from '../button/Button';
 import { useState } from 'react';
 import { Modal } from 'antd';
 import ProductQuickView from '../../pages/Product/ProductQuickView';
+import { Link } from 'react-router-dom';
 interface ProductProps {
   title: string;
   price: number;
   image: string;
   image_hover: string;
   isShowButton?: boolean;
-}
+  pathname: string;
+};
 
-const Product: React.FC<ProductProps> = ({ ...props }) => {
+const Product: React.FC<ProductProps> = ({ pathname, ...props }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
     <>
       <div className="w-full product-swapper cursor-pointer">
+
+      <Link to={pathname} className="w-[24%] product-swapper cursor-pointer space-x-1">
         <div className="w-[100%] relative overflow-hidden">
           <img className="productImg" src={props.image} alt="" />
           <img className="productImg_tea hidden absolute top-0 left-0" src={props.image_hover} alt="" />
@@ -31,7 +35,7 @@ const Product: React.FC<ProductProps> = ({ ...props }) => {
         </h3>
         <p className=" text-center">${props.price}</p>
         {props.isShowButton && <Button className='my-3 w-full bg-lightBlack hover:bg-lightGray text-white text-small border-none'>Add to Cart</Button>}
-      </div>
+      </Link>
       <Modal
         open={isOpenModal}
         onCancel={() => setIsOpenModal(false)}
