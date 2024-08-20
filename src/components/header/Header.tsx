@@ -12,7 +12,6 @@ const Header: React.FC = () => {
   
   const handleMenuClick = (item: string) => {
     setSelectMenu(item);
-    console.log(item);
   }
   return (
     <>

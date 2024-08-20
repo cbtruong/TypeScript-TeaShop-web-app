@@ -45,7 +45,7 @@ const Extras = () => {
         <div className="w-1/6">
           <ProductFilter FilterByTag={false} FilterByPrice={true} FilterBySize={false} FilterByColor={true} />
         </div>
-        <div className="w-5/6 flex flex-row gap-6">
+        <div className="w-5/6 grid gap-4 grid-cols-custom">
           {products.map((product, index) => (
             <Product key={index} {...product} isShowButton={true} />
           ))}
