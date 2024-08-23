@@ -16,9 +16,7 @@ interface ProductProps {
 const Product: React.FC<ProductProps> = ({ pathname, ...props }) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   return (
-    <>
-      <div className="w-full product-swapper cursor-pointer">
-
+    <div className="w-full product-swapper cursor-pointer">
       <Link to={pathname} className="w-[24%] product-swapper cursor-pointer space-x-1">
         <div className="w-[100%] relative overflow-hidden">
           <img className="productImg" src={props.image} alt="" />
@@ -49,7 +47,7 @@ const Product: React.FC<ProductProps> = ({ pathname, ...props }) => {
       >
         <ProductQuickView />
       </Modal>
-    </>
+    </div>
   );
 };
 

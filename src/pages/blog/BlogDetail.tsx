@@ -1,8 +1,23 @@
+// pages/blog/BlogDetail.tsx
 import { useState } from "react";
+import { SubmitHandler } from "react-hook-form";
+import CommentItems from "../../components/blog/CommentItem";
+import CommentInput from "../../components/blog/CommentInput";
 import { LuDot } from "react-icons/lu";
+import { FaXTwitter } from "react-icons/fa6";
+
+type CommentFormInputs = {
+  comment: string;
+};
 
 const BlogDetail = () => {
+  const [onHeart, setOnHeart] = useState(false);
   const [onEdit, setOnEdit] = useState(false);
+  const [onComment, setOnComment] = useState(false);
+
+  const onSubmit: SubmitHandler<CommentFormInputs> = (data) => {
+    console.log("Comment Submitted:", data);
+  };
 
   return (
     <div className="relative">
@@ -14,7 +29,7 @@ const BlogDetail = () => {
               <i className="bx bx-search text-h3"></i>
             </button>
           </div>
-          <div className="mt-10 py-10 px-14 border border-gray relative">
+          <div className="mt-10 py-10 px-14 border border-gray border-opacity-30 relative">
             <div className="absolute inset-0 bg-white opacity-35"></div>
             <div className="relative">
               <div className="flex flex-row items-center">
@@ -58,8 +73,60 @@ const BlogDetail = () => {
                 vel quam delectus enim maxime culpa temporibus ipsa saepe itaque
                 quos!
               </p>
+              <div className="mt-10 border-t border-b border-gray border-opacity-30 py-4 flex flex-row items-center space-x-6">
+                <i className="bx bxl-facebook text-h3"></i>
+                <FaXTwitter className="text-h3" />
+                <i className="bx bxl-linkedin text-h3"></i>
+                <i className="bx bx-link-alt text-h3"></i>
+              </div>
+              <div className="mt-5 flex flex-row items-center">
+                <div className="w-1/2 flex flex-row space-x-3">
+                  <p className="text-small font-extra">0 views</p>
+                  <button
+                    onClick={() => setOnComment(!onComment)}
+                    className="text-small font-extra"
+                  >
+                    0 comments
+                  </button>
+                </div>
+                <div className="w-1/2 flex flex-row justify-end">
+                  <button onClick={() => setOnHeart(!onHeart)}>
+                    <i
+                      className={`bx ${
+                        onHeart ? "bxs-heart " : "bx-heart"
+                      } text-[red] text-h3`}
+                    ></i>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
+          {onComment && (
+            <div className="mt-5 py-10 px-14 border border-gray border-opacity-30 relative">
+              <div className="flex flex-row justify-between items-center border-b border-gray border-opacity-30 pb-5 mb-10">
+                <h3 className="text-h3 font-extra italic">2 comments</h3>
+                <img
+                  src="https://via.placeholder.com/150"
+                  alt="blog"
+                  className="w-9 h-9 rounded-[50%]"
+                />
+              </div>
+              <CommentInput onSubmit={onSubmit} />
+              <div className="mt-10">
+                <div className="flex flex-row items-center space-x-3">
+                  <p className="text-normal">Sort by:</p>
+                  <select className="outline-none">
+                    <option value="newest">Newest</option>
+                    <option value="oldest">Oldest</option>
+                  </select>
+                </div>
+                <div className="mt-5 flex flex-col space-y-5">
+                  <CommentItems />
+                  <CommentItems />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
