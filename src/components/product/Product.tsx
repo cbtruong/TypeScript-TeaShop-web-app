@@ -49,6 +49,7 @@ const Product: React.FC<ProductProps> = ({ pathname, ...props }) => {
       >
         <ProductQuickView />
       </Modal>
+      </div>
     </>
   );
 };

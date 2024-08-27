@@ -1,4 +1,5 @@
 import Button from "../components/button/Button";
+import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import routes from "../routes/user";
 import { Route, Routes, useLocation, Outlet } from "react-router-dom";
@@ -85,6 +86,7 @@ const UserLayout = () => {
       </div>
       <Header />
       <Outlet />
+      <Footer />
     </div>
   );
 }

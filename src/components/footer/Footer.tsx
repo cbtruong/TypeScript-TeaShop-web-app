@@ -1,9 +1,22 @@
-//UNDONE: Add link for <a> tag, function for 'Let's Talk!' button and 'Subscribe now' button
+//UNDONE: Add Function for 'Let's Talk!' button and 'Subscribe now' button
 
 import { FaArrowUp } from "react-icons/fa";
 import Button from "../button/Button";
+import { Link } from "react-router-dom";
+
+const BackToTop = () => {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 const Footer : React.FC = () => {
+  const MenuShortcutPath: string[] = ["Teas", "Extras", "About", "Blog", "Contact"];
+  const MenuShortcutItems: string[] = ["Shop", "Extras", "About", "Blog", "Contact"];
+  const Help_Path: string[] = ["FAQ", "Shipping-Returns", "Store-Policy", ""];
+  const Help_Items: string[] = ["FAQ", "Shipping & Returns", "Store Policy", "Payment Methods"];
+  //TODO: Add path for Follow us
+  const FollowUs_Items: string[] = ["Facebook", "Instagram", "Pinterest"];
+
   return (
     <footer className="bg-[#E6E7EA]">
       <div className="flex px-20 pt-4">
@@ -13,22 +26,14 @@ const Footer : React.FC = () => {
           <h3 className="text-3xl bold italic">Get to Know</h3>
           <h3 className="text-3xl bold italic">Bloom's Tea Better</h3>
 
-          <ul className="text-sm my-10">
-            <li>
-              <a href="" className="hover:text-blue-900">Shop</a>
-            </li>
-            <li className="my-3">
-              <a href="" className="hover:text-blue-900">Extras</a>
-            </li>
-            <li className="my-3">
-              <a href="" className="hover:text-blue-900">About</a>
-            </li>
-            <li className="my-3">
-              <a href="" className="hover:text-blue-900">Blog</a>
-            </li>
-            <li className="my-3">
-              <a href="" className="hover:text-blue-900">Contact</a>
-            </li>
+          <ul className="text-sm py-5">
+            {MenuShortcutPath.map((item, index) => (
+              <li key={index+1} className="py-1">
+                <Link to={`/${item.toLowerCase()}`} className="hover:text-blue-900" onClick={BackToTop}>
+                  {MenuShortcutItems[index]}
+                </Link>
+              </li>
+            ))}
           </ul>
 
           <a href="" className="text-sm my-10 underline hover:text-blue-900">Visit Our Store</a>
@@ -42,19 +47,14 @@ const Footer : React.FC = () => {
               <h3 className="text-xl italic">Help</h3>
               <hr className="my-2 w-48"/>
 
-              <ul className="text-sm my-12">
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">FAQ</a>
-                </li>
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">Shipping & Return</a>
-                </li>
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">Store Policy</a>
-                </li>
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">Payment Methods</a>
-                </li>
+              <ul className="text-sm my-8">
+                {Help_Path.map((item, index) => (
+                  <li key={index+1} className="py-1">
+                    <Link to={`/${item.toLowerCase()}`} className="hover:text-blue-900 italic" onClick={BackToTop}>
+                      {Help_Items[index]}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -63,16 +63,14 @@ const Footer : React.FC = () => {
               <h3 className="text-xl italic">Follow us</h3>
               <hr className="my-2"/>
 
-              <ul className="text-sm my-12">
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">Facebook</a>
-                </li>
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">Instagram</a>
-                </li>
-                <li className="my-2">
-                  <a href="" className="hover:text-blue-900">Pinterest</a>
-                </li>
+              <ul className="text-sm my-8">
+                {FollowUs_Items.map((item, index) => (
+                  <li key={index+1} className="py-1">
+                    <Link to="/" className="hover:text-blue-900" onClick={BackToTop}>
+                      {item}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -94,10 +92,11 @@ const Footer : React.FC = () => {
       </div>
       <div className="flex flex-row justify-between px-40 py-2">
         <p className="text-slate-600">@2035 by Bloom’s Tea. Powered and sercured by Wix</p>
-        <a href= "" className="flex flex-row hover:text-blue-900 pr-48">
+        <button className="flex flex-row hover:text-blue-900 pr-48"
+        onClick={BackToTop}>
           <FaArrowUp className="pt-1 size-4"/>
           <p className="px-2">Back to top</p>
-        </a>
+        </button>
       </div>
 
       {/* Floating button */}
