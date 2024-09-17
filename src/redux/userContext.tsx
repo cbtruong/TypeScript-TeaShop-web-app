@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { user } from '../type/user.ts';
+import { user } from '../query/type/user.ts';
 
 interface UserContextType {
   user: user;
