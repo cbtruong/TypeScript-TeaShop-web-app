@@ -4,7 +4,7 @@ interface Button extends React.ButtonHTMLAttributes<HTMLElement> {
 	className?: string;
 	loading?: boolean;
 	type?: "submit" | "button";
-	isHidden?: boolean;
+	isHidden?: boolean,
   	typeButton?:number,
 }
 
