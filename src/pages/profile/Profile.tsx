@@ -14,6 +14,7 @@ import EmptyAddress from '../../components/profile/addresses/Empty';
 import EmptyWallet from '../../components/profile/wallet/Empty';
 import EmptyBlogComment from '../../components/profile/blogComment/Empty';
 import EmptyBlogLike from '../../components/profile/blogLike/Empty';
+import Account from '../../components/profile/account/index';
 
 interface menuProfileItem {
 	name: string;
@@ -60,7 +61,7 @@ const Profile = () => {
 		},
 		{
 			name: "My Account",
-			component: <Main />,
+			component: <Account />,
 		},
 		{
 			name: "Notifications",
