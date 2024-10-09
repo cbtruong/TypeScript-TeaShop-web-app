@@ -7,8 +7,6 @@ import Contact from "../pages/contact";
 import Blog from "../pages/blog";
 import BlogDetail from "../pages/blog/BlogDetail";
 import Profile from "../pages/profile/Profile";
-import Login from "../pages/auth/login";
-import Register from "../pages/auth/register";
 import ShippingReturn from "../pages/Help/ShippingReturn";
 import StorePolicy from "../pages/Help/StorePolicy";
 import Faq from "../pages/Help/Faq";

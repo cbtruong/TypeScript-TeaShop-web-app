@@ -1,7 +1,6 @@
 import Button from "../components/button/Button";
 import Header from "../components/header/Header";
-import routes from "../routes/user";
-import { Route, Routes, useLocation, Outlet } from "react-router-dom";
+import { useLocation, Outlet } from "react-router-dom";
 
 const renderContent = (pathname: string) => {
   if (pathname === '/') {

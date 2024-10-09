@@ -2,7 +2,7 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Background from "../../assets/background_login.svg";
 import GoogleIcon from "../../assets/google_icon.svg";
 import { useUser } from '../../redux/userContext';
-import { user } from '../../type/user';
+import { user } from '../../query/type/user';
 import { Link } from "react-router-dom";
 
 type FormData = {
