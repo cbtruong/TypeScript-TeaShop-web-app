@@ -61,7 +61,8 @@ const Register = () => {
                   type="email"
                   id="email"
                   {...field}
-                  className="w-full bg-transparent border-b-2 border-white text-white focus:outline-none pt-6 peer"
+                  className={`w-full bg-transparent border-b-2 ${errors.email ? 'border-red-500' : 'border-white'} text-white focus:outline-none pt-6 peer autofill-bg-transparent`}
+                  autoComplete="email"
                 />
               )}
             />
