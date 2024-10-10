@@ -1,3 +1,4 @@
+
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Background from "../../assets/background_login.svg";
 import GoogleIcon from "../../assets/google_icon.svg";
@@ -11,7 +12,6 @@ type FormData = {
 };
 
 const Login = () => {
-  // const { setUser } = useUser();
   const { control, handleSubmit, watch, formState: { errors } } = useForm<FormData>();
 
   const emailValue = watch("email", "");
@@ -26,8 +26,6 @@ const Login = () => {
       role: 'user'
     };
     // setUser(newUser);
-
-    // console.log(newUser);
   };
 
   return (
@@ -47,6 +45,8 @@ const Login = () => {
               Register
             </Link>
           </div>
+
+          {/* Email Input */}
           <div className="mt-[20px] relative">
             <Controller
               name="email"
@@ -67,12 +67,16 @@ const Login = () => {
                 },
               }}
               render={({ field }) => (
+
+
                 <input
                   type="email"
                   id="email"
                   {...field}
-                  className={`w-full bg-transparent border-b-2 ${errors.email ? 'border-red-500' : 'border-white'} text-white focus:outline-none pt-6 peer`}
+                  className={`w-full bg-transparent border-b-2 ${errors.email ? 'border-red-500' : 'border-white'} text-white focus:outline-none pt-6 peer autofill-bg-transparent`}
+                  autoComplete="email"
                 />
+
               )}
             />
             <label htmlFor="email"
@@ -82,6 +86,8 @@ const Login = () => {
             </label>
             {errors.email && <span className="text-red-500">{errors.email.message}</span>}
           </div>
+
+          {/* Password Input */}
           <div className="mt-[30px] relative">
             <Controller
               name="password"
@@ -106,7 +112,8 @@ const Login = () => {
                   type="password"
                   id="password"
                   {...field}
-                  className={`w-full bg-transparent border-b-2 ${errors.password ? 'border-red-500' : 'border-white'} text-white focus:outline-none pt-6 peer`}
+                  className={`w-full bg-transparent border-b-2 ${errors.password ? 'border-red-500' : 'border-white'} text-white focus:outline-none pt-6 peer autofill:bg-autofillBg autofill:text-autofillText`}
+                  autoComplete="current-password" // Thêm thuộc tính autoComplete cho trình duyệt
                 />
               )}
             />
@@ -117,14 +124,17 @@ const Login = () => {
             </label>
             {errors.password && <span className="text-red-500">{errors.password.message}</span>}
           </div>
+
           <button className="mt-[30px] w-full py-2 border-[1px] hover:text-black hover:bg-white">
             LOGIN
           </button>
+
           <div className="mt-[30px] flex flex-row justify-between items-center">
             <hr className="text-white w-24"></hr>
             <p>OR</p>
             <hr className="text-white w-24"></hr>
           </div>
+
           <div className="mt-[30px] flex flex-row items-center">
             <div>
               <img src={GoogleIcon} alt="" className="object-contain" />
@@ -140,3 +150,4 @@ const Login = () => {
 };
 
 export default Login;
+
