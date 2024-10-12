@@ -37,8 +37,8 @@ const columns = (
       },
     },
     {
-      title: "Price",
-      dataIndex: "price",
+      title: "Cost",
+      dataIndex: "cost",
       align: "center",
       render: (value) => <p>{value}</p>
     },
@@ -49,8 +49,8 @@ const columns = (
       render: (value) => <p>{value}</p>
     },
     {
-      title: "Color",
-      dataIndex: "color",
+      title: "Size",
+      dataIndex: "size",
       align: "center",
       render: (value) => <p>{value}</p>
     },
@@ -63,6 +63,18 @@ const columns = (
     {
       title: "Size",
       dataIndex: "size",
+      align: "center",
+      render: (value) => <p>{value}</p>
+    },
+    {
+      title: "Category",
+      dataIndex: "category",
+      align: "center",
+      render: (value) => <p>{value}</p>
+    },
+    {
+      title: "Quantity",
+      dataIndex: "quantity",
       align: "center",
       render: (value) => <p>{value}</p>
     },

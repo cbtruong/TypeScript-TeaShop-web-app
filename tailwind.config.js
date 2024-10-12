@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
@@ -58,20 +57,30 @@ export default {
     },
   },
   plugins: [
-    function({ addUtilities }) {
-      addUtilities({
-        // Thêm lớp cho autofill
-        ".autofill-bg-transparent": {
-          '&:-webkit-autofill': {
-            backgroundColor: 'transparent', // Đặt màu nền là trong suốt
-            color: '#FFFFFF', // Màu chữ thành trắng
-            '-webkit-text-fill-color': '#FFFFFF', // Đặt màu chữ cho autofill thành trắng
-            '-webkit-box-shadow': '0 0 0px 0px transparent inset', // Đảm bảo nền là trong suốt
-            transition: 'background-color 5000s ease-in-out 0s', // Giữ màu nền không thay đổi
+    function ({ addUtilities }) {
+      addUtilities(
+        {
+          ".displayCenter": {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+          ".transitionMain": {
+            transition: "all .3s ease-in-out",
+          },
+          // Thêm lớp cho autofill
+          ".autofill-bg-transparent": {
+            "&:-webkit-autofill": {
+              backgroundColor: "transparent", // Đặt màu nền là trong suốt
+              color: "#FFFFFF", // Màu chữ thành trắng
+              "-webkit-text-fill-color": "#FFFFFF", // Đặt màu chữ cho autofill thành trắng
+              "-webkit-box-shadow": "0 0 0px 0px transparent inset", // Đảm bảo nền là trong suốt
+              transition: "background-color 5000s ease-in-out 0s", // Giữ màu nền không thay đổi
+            },
           },
         },
-      }, ['responsive', 'hover', 'focus']);
+        ["responsive", "hover", "focus"]
+      );
     },
   ],
 };
-

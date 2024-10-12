@@ -137,7 +137,7 @@ const ProductManage: React.FC = () => {
         />
         <Button onClick={showModal}>Add new</Button>
         <Modal
-          title={modalEdit.isOpen ? "Add Product" : "Edit Product"}
+          title={modalEdit.isOpen ? "Edit Product" : "Add Product"}
           open={isModalOpen || modalEdit.isOpen}
           onCancel={closeModal}
           cancelButtonProps={{

@@ -2,8 +2,8 @@ import "boxicons/css/boxicons.min.css";
 
 const About = () => {
   return (
-    <div className="my-[5.5rem] displayCenter flex-col">
-      <div className="w-full displayCenter relative mb-8">
+    <div className="my-[5.5rem] flex flex-col justify-center items-center">
+      <div className="w-full flex flex-col justify-center items-center relative mb-8">
         <h2 className="font-extra italic text-h1 z-10 bg-white px-12 font-tiny">
           120 Years of Brewing Fine Tea
         </h2>

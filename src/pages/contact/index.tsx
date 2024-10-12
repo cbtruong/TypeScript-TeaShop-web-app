@@ -21,8 +21,8 @@ const Contact = () => {
   };
 
   return (
-    <div className="my-[5.5rem] displayCenter flex-col">
-      <div className="w-full displayCenter relative mb-8">
+    <div className="my-[5.5rem] flex flex-col justify-center items-center">
+      <div className="w-full flex flex-col justify-center items-center relative mb-8">
         <h2 className="font-extra italic text-h1 z-10 bg-white px-12 font-tiny">
           You're Welcome to Visit
         </h2>
