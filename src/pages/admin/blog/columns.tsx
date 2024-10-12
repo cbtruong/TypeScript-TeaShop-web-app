@@ -7,20 +7,6 @@ const columns = (
   showDeleteConfirm: (_id: string) => void
 ): TableColumnsType<Blog> => [
     {
-      title: "Image",
-      dataIndex: "blog_image",
-      align: "center",
-      render: (value) => {
-        return (
-          <img
-            src={value[0]}
-            alt="activities"
-            className="object-center h-8 w-8"
-          />
-        );
-      },
-    },
-    {
       title: "Title",
       dataIndex: "title",
       filters: [],
@@ -37,20 +23,32 @@ const columns = (
       },
     },
     {
-      title: "Total View",
-      dataIndex: "total_view",
+      title: "Description",
+      dataIndex: "description",
       align: "center",
       render: (value) => <p>{value}</p>
     },
     {
-      title: "Total Comment",
-      dataIndex: "total_comment",
+      title: "Content",
+      dataIndex: "content",
       align: "center",
       render: (value) => <p>{value}</p>
     },
     {
-      title: "Total Like",
-      dataIndex: "total_like",
+      title: "Blog Status",
+      dataIndex: "blog_status",
+      align: "center",
+      render: (value) => <p>{value}</p>
+    },
+    {
+      title: "Create Date",
+      dataIndex: "create_date",
+      align: "center",
+      render: (value) => <p>{value}</p>
+    },
+    {
+      title: "End Date",
+      dataIndex: "end_date",
       align: "center",
       render: (value) => <p>{value}</p>
     },

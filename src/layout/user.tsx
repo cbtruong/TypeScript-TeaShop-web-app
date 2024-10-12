@@ -79,7 +79,7 @@ const UserLayout = () => {
 
   return (
     <div className="relative">
-      <div className="bg-cover bg-center bg-fixed bg-headerHome displayCenter flex-col pt-[323px]">
+      <div className="bg-cover bg-center bg-fixed bg-headerHome flex flex-col justify-center items-center pt-[323px]">
         {renderContent(pathname)}
       </div>
       <Header />

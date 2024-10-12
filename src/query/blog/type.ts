@@ -1,14 +1,31 @@
 type Blog = {
   id: string;
-  user_id: string;
-  title: string;
-  description: string;
-  total_view: number;
-  total_comment: number;
-  total_like: number;
-  blog_image: Array<string>;
-  create_at: string;
-  elapsed_time: number;
+  comment_id: string; 
+  user_id: string;  
+  title: string;  
+  description: string;  
+  content: string;  
+  blog_status: string;  
+  create_date: Date;
+  end_date: Date;
+  view_total: number;
+  comment_total: number;
+  like_total: number;
 };
 
-export { type Blog };
+type Like = {
+  blog_id: string;
+  user_id: string;
+}
+
+type Comment = {
+  user_id: string;
+  product_id: string;
+  blog_id: string;
+  content: string;
+  create_date: Date;
+}
+
+export { type Blog, type Like, type Comment };
+
+
