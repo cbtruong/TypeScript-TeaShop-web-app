@@ -5,6 +5,7 @@ import CustomerManage from "../pages/admin/customer";
 import OrderManage from "../pages/admin/order";
 import SettingManage from "../pages/admin/setting";
 import BlogManage from "../pages/admin/blog";
+import VoucherManage from "../pages/admin/voucher";
 
 const createRoute  = (path: string, element: ReactNode) => ({
   path,
@@ -18,6 +19,7 @@ const AdminRoutes = [
   createRoute('/admin/order', <OrderManage />),
   createRoute('/admin/setting', <SettingManage />),
   createRoute('/admin/blog', <BlogManage />),
+  createRoute('/admin/voucher', <VoucherManage />),
 ];
 
 export default AdminRoutes;

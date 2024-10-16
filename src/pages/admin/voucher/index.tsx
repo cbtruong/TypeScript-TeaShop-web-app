@@ -1,38 +1,38 @@
 import Search, { SearchProps } from "antd/es/input/Search";
 import { Table, TableProps, notification, Modal, DatePicker, Button } from "antd";
-import { Order } from "../../../query/order/type"; // Adjust the import path based on your file structure
-import columns from "./columns"; // Make sure to create a columns file for orders
+import { Voucher } from "../../../query/voucher/type";
+import columns from "./columns";
 import { useState, useEffect, useRef } from "react";
 import confirm from "antd/es/modal/confirm";
 import moment from "moment";
-import OrderForm from "./OrderForm";
+import VoucherForm from "./VoucherForm";
 
-const onSearch: SearchProps["onSearch"] = (value, _e) => 
-  console.log("Search value:", value);
+const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
+  console.log(info?.source, value);
 
-const onChange: TableProps<Order>["onChange"] = (
+const onChange: TableProps<Voucher>["onChange"] = (
   pagination,
   filters,
   sorter,
   extra
 ) => {
-  console.log("Table parameters:", pagination, filters, sorter, extra);
+  console.log("params", pagination, filters, sorter, extra);
 };
 
-const OrderManage: React.FC = () => {
+const VoucherManage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [modalEdit, setModalEdit] = useState<{
     isOpen: boolean;
-    data: undefined | Order;
+    data: undefined | Voucher;
   }>({
     isOpen: false,
     data: undefined,
   });
 
-  const [orderList, setOrderList] = useState<Order[]>([]);
+  const [voucherList, setVoucherList] = useState<Voucher[]>([]);
 
-  const timeoutRef = useRef(setTimeout(() => {}, 0));
+  const timeoutRef = useRef(setTimeout(() => { }, 0));
 
   const [filters, setFilters] = useState({
     start: 0,
@@ -57,7 +57,7 @@ const OrderManage: React.FC = () => {
     setIsModalOpen(false);
   };
 
-  const handleTableChange: TableProps<Order>["onChange"] = (pagination) => {
+  const onChange: TableProps<Voucher>["onChange"] = (pagination) => {
     setFilters((prev) => ({
       ...prev,
       pageNumber: pagination.current ?? 1,
@@ -65,7 +65,7 @@ const OrderManage: React.FC = () => {
     }));
   };
 
-  const handleSearch: SearchProps["onSearch"] = (value) => {
+  const onSearch: SearchProps["onSearch"] = (value, _e) => {
     clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setFilters((prev) => ({
@@ -75,33 +75,22 @@ const OrderManage: React.FC = () => {
     }, 1500);
   };
 
-  const showModalEdit = (isOpen: boolean, data: Order) => {
+  const showModalEdit = (isOpen: boolean, data: Voucher) => {
     setModalEdit({
       isOpen,
       data,
     });
   };
 
-  const showDeleteConfirm = (id: string) => {
+  const showDeleteConfirm = (_id: string) => {
     confirm({
-      title: "Are you sure you want to delete this order?",
-      content: "You will not be able to recover this order after deletion!",
-      okText: "Yes, delete it",
+      title: "Bạn có chắc muốn xóa voucher này?",
+      content: "Bạn sẽ không thể khôi phục voucher sau khi xóa!",
+      okText: "Xóa luôn",
       okType: "danger",
       maskClosable: true,
       closable: true,
-      // onOk() {
-      //   deleteOrder({ id })
-      //     .then(() => {
-      //       notification.success({ message: "Deleted successfully" });
-      //     })
-      //     .catch(() => {
-      //       notification.error({
-      //         message: "Deletion failed! Please try again.",
-      //       });
-      //     });
-      // },
-      cancelText: "Cancel",
+      cancelText: "Hủy",
     });
   };
 
@@ -109,7 +98,7 @@ const OrderManage: React.FC = () => {
     <div>
       <div className="flex items-center justify-end my-4 space-x-2">
         <DatePicker.RangePicker
-          placeholder={["Start Date", "End Date"]}
+          placeholder={["", "Hôm nay"]}
           allowEmpty={[false, true]}
           onChange={(date) => {
             if (!date) return;
@@ -130,14 +119,14 @@ const OrderManage: React.FC = () => {
           }}
         />
         <Search
-          placeholder="Search orders..."
+          placeholder="search..."
           allowClear
           className="w-[300px]"
-          onSearch={handleSearch}
+          onSearch={onSearch}
         />
-        <Button onClick={showModal}>Add New</Button>
+        <Button onClick={showModal}>Add new</Button>
         <Modal
-          title={modalEdit.isOpen ? "Edit Order" : "Add Order"}
+          title={modalEdit.isOpen ? "Edit Voucher" : "Add Voucher"}
           open={isModalOpen || modalEdit.isOpen}
           onCancel={closeModal}
           cancelButtonProps={{
@@ -147,23 +136,23 @@ const OrderManage: React.FC = () => {
             className: "hidden",
           }}
         >
-          <OrderForm initForm={modalEdit.data} />
+          <VoucherForm initForm={modalEdit.data} />
         </Modal>
       </div>
       <Table
         columns={columns(showModalEdit, showDeleteConfirm)}
-        dataSource={[...orderList].map((item, index) => ({
+        dataSource={[...voucherList].map((item, index) => ({
           ...item,
           key: index,
         }))}
         pagination={{
           pageSize: 5,
-          total: orderList.length,
+          total: voucherList.length,
         }}
-        onChange={handleTableChange}
+        onChange={onChange}
       />
     </div>
   );
 };
 
-export default OrderManage;
+export default VoucherManage;

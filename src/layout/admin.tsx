@@ -40,6 +40,12 @@ const ListMenu = [
     path: '/admin/blog',
   },
   {
+    key: 'Voucher',
+    icon: 'bx bxs-news',
+    title: 'Voucher Management',
+    path: '/admin/voucher',
+  },
+  {
     key: 'Setting',
     icon: 'bx bxs-cog',
     title: 'Setting Management',
